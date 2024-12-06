@@ -12,7 +12,7 @@ function Home({ setIsLoggedIn }) {
     // Fetch news based on the keyword
     const handleSearchNews = (searchTerm) => {
         if (searchTerm) {
-            // const apikey = process.env.newsAPI;
+
             const apikey = process.env.REACT_APP_NEWS_API;
             fetch(`https://newsapi.org/v2/everything?q=${searchTerm}&apiKey=${apikey}`)
                 .then(response => response.json())
