@@ -4,7 +4,6 @@ import Home from './components/Home';
 import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Navigate, Route } from 'react-router-dom';
 
-
 function App() {
 
   //state isLoggedIn should be here so can be passed to Home and Login 

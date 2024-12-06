@@ -23,7 +23,7 @@ function MyFavouritesPanel({refreshFavourites}) {
     };
 
     return(
-        <Grid container direction='row' style={{display: "flex", backgroundColor: "#fff", justifyContent : 'space-between', paddingLeft: '10px', boxShadow: '2px 0 5px rgba(0,0,0,0.1)'}}>
+        <Grid container direction='row' style={{display: "flex", backgroundColor: "#fff", justifyContent : 'space-between', paddingLeft: '10px', boxShadow: '2px 0 5px rgba(0,0,0,0.1)',}}>
           
                 <h3 style={{ fontFamily: 'Inter', color: '#333',  }}>Favourites:</h3>
                 <Button 

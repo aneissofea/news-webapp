@@ -4,7 +4,7 @@ import MyFavouritesPanel from './MyFavouritesPanel'
 import DisplayResults from './DisplayResults';
 import Header from './Header';
 
-function Home() {
+function Home({ setIsLoggedIn }) {
     const [newsList, setNewsList] = useState([]);   
     const [refreshFavourites, setRefreshFavourites] = useState(false);  
     const [keyword, setKeyword] = useState('');
@@ -12,7 +12,9 @@ function Home() {
     // Fetch news based on the keyword
     const handleSearchNews = (searchTerm) => {
         if (searchTerm) {
-            fetch(`https://newsapi.org/v2/everything?q=${searchTerm}&apiKey=97e5c682785e4de1a9c3c0b75f7271e7`)
+            // const apikey = process.env.newsAPI;
+            const apikey = process.env.REACT_APP_NEWS_API;
+            fetch(`https://newsapi.org/v2/everything?q=${searchTerm}&apiKey=${apikey}`)
                 .then(response => response.json())
                 .then(data => {
                     const validArticles = data.articles.filter(article => 
@@ -42,7 +44,8 @@ function Home() {
             <Grid className="header-container" item lg={1} style={{maxHeight: "10vh"}} >
                 <Header 
                 setSearchKeyword={setKeyword}
-                handleSearchNews={handleSearchNews} 
+                handleSearchNews={handleSearchNews}
+                setIsLoggedIn={setIsLoggedIn}
                 />
             </Grid>
 

@@ -14,6 +14,7 @@ function Header({ setSearchKeyword, handleSearchNews, setIsLoggedIn }) {
     };
 
     const handleLogOut = () => {
+        console.log('Logging out...'); // Debugging
         // Clear login details from localStorage
         localStorage.removeItem('isLoggedIn')
         localStorage.removeItem('username')
