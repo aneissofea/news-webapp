@@ -9,7 +9,7 @@ function MyFavouritesPanel({refreshFavourites}) {
     useEffect(() => {
         const savedFavourites = JSON.parse(localStorage.getItem('favourites')) || [];
         setFavourites(savedFavourites);
-    }, [refreshFavourites]);        // Dependency on refreshFavourites ensures re-fetch
+    }, [refreshFavourites]);  
 
     // Handle clearing all favourites
     const handleClearFavourites = () => {
@@ -23,26 +23,29 @@ function MyFavouritesPanel({refreshFavourites}) {
     };
 
     return(
-        <Grid container direction='row' style={{display: "flex", backgroundColor: "#fff", justifyContent : 'space-between', paddingLeft: '10px', boxShadow: '2px 0 5px rgba(0,0,0,0.1)',}}>
-          
-                <h3 style={{ fontFamily: 'Inter', color: '#333',  }}>Favourites:</h3>
+        <Grid container direction='column' style={{display: "flex", backgroundColor: "#000", color: '#fff', boxShadow: '2px 0 5px rgba(0,0,0,0.1)', paddingLeft: '12px'}}>
+            <div style={{display: 'flex', flexDirection : "row", justifyContent : 'space-between', alignItems: 'center', }}>
+                <div style={{ fontFamily: 'Inter, Arial, Sans-serif', fontSize:'18px', fontWeight: 'bold',}}>Favourites</div>
                 <Button 
                 variant="contained" 
                 onClick={handleClearFavourites} 
                 disabled={favourites.length === 0} 
                 sx={{ 
-                    fontFamily: 'Inter', 
-                    backgroundColor: '#04DB9B',  
-                    color: '#fff',               
-                    borderRadius: '8px',        
-                    padding: '0 10px',        
+                    fontFamily: 'Inter, Arial, Sans-serif', 
+                    backgroundColor: '#8A848A !important',  
+                    color: '#ffffff !important',               
+                    borderRadius: '6px',        
+                    padding: '5px 10px',
+                    textTransform: 'none', 
+                    fontWeight: 'bold',       
                     '&:hover': {
-                        backgroundColor: '#006346', 
+                        backgroundColor: '#333',
                     }
                 }}>
                     Clear
                 </Button>
-        
+            </div>
+
             {favourites.length > 0 ? (
                 <List>
                     {favourites.map((news, index) => (

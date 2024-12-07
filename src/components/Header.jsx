@@ -14,7 +14,6 @@ function Header({ setSearchKeyword, handleSearchNews, setIsLoggedIn }) {
     };
 
     const handleLogOut = () => {
-        console.log('Logging out...'); // Debugging
         // Clear login details from localStorage
         localStorage.removeItem('isLoggedIn')
         localStorage.removeItem('username')
@@ -25,11 +24,11 @@ function Header({ setSearchKeyword, handleSearchNews, setIsLoggedIn }) {
     };
 
     return(
-        <Grid container direction='row' style={{display: "flex", backgroundColor: "#04DB9B", paddingLeft: '10px' }}>
+        <Grid container direction='row' style={{display: "flex", backgroundColor: "hsla(0, 100%, 100%, 0.9)", paddingLeft: '10px' }}>
             <Grid item xs={2.5} >
-                <h3 style={{ fontFamily: 'Inter', fontSize: '20px', color: '#333',  }}>Brand News</h3>    
+                <h3 style={{ fontFamily: 'Inter, Arial, Sans-serif', fontSize: '25px', color: '#333',  }}>Brand News</h3>    
             </Grid>
-            <Grid item xs={4} style={{height:'10px' }}>
+            <Grid item xs={4} style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                 <TextField id="filled-basic"
                     label="Search for news"
                     variant="filled"
@@ -45,13 +44,15 @@ function Header({ setSearchKeyword, handleSearchNews, setIsLoggedIn }) {
             </Grid>
             <Grid item xs={1} style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}} >
                 <Button variant="contained" onClick={handleSetKeyword} sx={{ 
-                fontFamily: 'Inter', 
-                backgroundColor: '#ffffff',  
-                color: '#006346',               
+                fontFamily: 'Inter, Arial, Sans-serif', 
+                backgroundColor: '#8A848A',  
+                color: '#fff',               
                 borderRadius: '6px',        
-                padding: '10px 20px',        
+                padding: '10px 20px',
+                textTransform: 'none',
+                fontWeight: 'bold',        
                 '&:hover': {
-                    backgroundColor: '#333',
+                    backgroundColor: '#522350',
                     color: '#fff', 
                 }
                 }}>
@@ -59,21 +60,30 @@ function Header({ setSearchKeyword, handleSearchNews, setIsLoggedIn }) {
                 </Button>
             </Grid>
             <Grid item xs={3} style={{display: 'flex', justifyContent: 'flex-end', alignItems: 'center'}}>
-                <Chip label={localStorage.getItem('username')} />
+                <Chip label={localStorage.getItem('username')} 
+                sx={{
+                    backgroundColor: 'transparent', 
+                    color: '#000',
+                    fontWeight: 'bold',
+                    fontSize: '16px'
+                  }}
+                />
             </Grid>
 
             <Grid item xs={1} style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                 <Button 
                 variant="contained" 
                 onClick={handleLogOut} sx={{ 
-                fontFamily: 'Inter', 
-                backgroundColor: '#ffffff',  
-                color: '#006346',               
-                borderRadius: '6px',        
-                padding: '10px 20px',        
-                '&:hover': {backgroundColor: '#333', color: '#fff'}
+                fontFamily: 'Inter, Arial, Sans-serif', 
+                backgroundColor: '#D5B5D4',  
+                color: '#ffffff',
+                fontWeight:'bold',               
+                borderRadius: '25px',        
+                padding: '10px 15px',
+                textTransform: 'none',       
+                '&:hover': {backgroundColor: '#522350', color: '#fff'}
                 }}>
-                    Log out
+                    Logout
                 </Button>
             </Grid>      
         </Grid>

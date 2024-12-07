@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { Card, CardMedia, CardContent, Typography, IconButton } from '@mui/material';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-//import BookmarkIcon from '@mui/icons-material/Bookmark';
 
 const NewsItem = ({ news, updatemyFavourites  }) => {
 
@@ -36,25 +35,27 @@ const NewsItem = ({ news, updatemyFavourites  }) => {
   };
  
   return (
-    <Card style={{ margin: '10px', width: '245px', height:'400px' }}>
-      {/* News Image */}
-      <CardMedia
-        component="img"
-        height="140"
-        image={news.urlToImage ? news.urlToImage : 'https://via.placeholder.com/245x140.png?text=No+Image'} // Fallback to placeholder image
-        alt={news.title}
-      />
-      
-      {/* News Content */}
-      <CardContent>
-        <Typography fontFamily='Inter' variant="h6" component="div">{news.title}</Typography>
-        <Typography variant="caption" color="textSecondary">
-          {new Date(news.publishedAt).toLocaleDateString()}
-        </Typography>
-      </CardContent>
+    <Card style={{ margin: '10px', width: '235px', height:'350px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between',}}>
+      <div>
+        {/* News Image */}
+        <CardMedia
+          component="img"
+          height="140"
+          image={news.urlToImage ? news.urlToImage : 'https://via.placeholder.com/245x140.png?text=No+Image'} // Fallback to placeholder image
+          alt={news.title}
+        />
+        
+        {/* News Content */}
+        <CardContent  style={{marginBottom: '0px', paddingBottom:'0px'}}>
+          <Typography fontFamily='Inter, Arial, Sans-serif' fontSize="17px" component="div">{news.title}</Typography>
+          <Typography variant="caption" color="textSecondary">
+            {new Date(news.publishedAt).toLocaleDateString()}
+          </Typography>
+        </CardContent>
+      </div>
 
       {/* Action Buttons */}
-      <div style={{ display: 'flex', justifyContent: 'space-between', padding: '10px' }}>
+      <div style={{marginBottom: '5px', marginLeft:'5px'}}>
         <IconButton 
         aria-label="add to favorites" 
         onClick={handleBookmark} 

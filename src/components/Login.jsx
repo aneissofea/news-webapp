@@ -4,6 +4,7 @@ import Grid from '@mui/material/Grid';
 import { useState } from 'react';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
+import LoginImage from '../image/Login.jpg';
 
 
 const Login = ({setIsLoggedIn, setUsername}) => {
@@ -11,7 +12,7 @@ const Login = ({setIsLoggedIn, setUsername}) => {
     const [localusername, setLocalUsername] = useState('');
     const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
-    const [errorMessage, setErrorMessage] = useState(null); // Add a state to store the error message
+    const [errorMessage, setErrorMessage] = useState(null); 
     const navigate = useNavigate();
 ;
     const showPasswordHandler = () => {
@@ -44,10 +45,10 @@ const Login = ({setIsLoggedIn, setUsername}) => {
             <Grid container  style={{
                 display: "flex",
                 zIndex: '-1',
-                backgroundColor: "#04DB9B",
-                minHeight: "100vh",   // Makes background fill the whole page
-                justifyContent: "center",  // Centers horizontally
-                alignItems: "center"       // Centers vertically
+                backgroundColor: "#000",
+                minHeight: "100vh",   
+                justifyContent: "center",  
+                alignItems: "center"       
             }}>
                 <Grid container style={{
                 borderRadius: '20px',
@@ -55,81 +56,103 @@ const Login = ({setIsLoggedIn, setUsername}) => {
                 boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
                 width: '80%', 
                 height:'600px', 
-                maxWidth: '1000px', // Max width for larger screens
+                maxWidth: '1000px', 
                 display: "flex",
                 backgroundColor: "#FFF",                
-                justifyContent: "center",  // Centers horizontally
-                alignItems: "center"       // Centers vertically
+                justifyContent: "center",  
+                alignItems: "center"      
                 }}>
-                <Grid  item xs={12} sm={8} md={4}> {/* Adjust grid for responsiveness */}
-                    <div 
-                        className='header' 
-                        style={{
-                            display: 'flex',
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                            height: '10vh',
-                            marginBottom: '20px', //no use, delete later if you want to                                
-                        }}>
-                        <h1 style={{ fontFamily: 'Inter', fontSize: '3.4rem', color: '#333' }}> 
-                            Brand News
-                        </h1> 
-                    </div>
 
+                    {/* Left Section */}
+                    <Grid
+                    item
+                    xs={0}
+                    sm={6}
+                    style={{
+                        backgroundImage: `url(${LoginImage})`, 
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        height: '100%',
+                        borderRadius: '30px',
+                    }}>
+                    </Grid> 
 
-                    <div className='inputs'>
-                         {/* Conditionally render the alert if there's an error */}
-                         {errorMessage && (
-                                <Alert severity="warning" onClose={() => setErrorMessage(null)}>
-                                    {errorMessage}
-                                </Alert>
-                            )}
-                        <div className='input' style={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '10vh'}}>
-                            <TextField 
-                            id="outlined-basic" 
-                            label="username" 
-                            variant="standard"
-                            value={localusername} 
-                            onChange={(e) => setLocalUsername(e.target.value)}
-                            fullWidth  // Make input fill the available space
-                            />                         
-                        </div>
-                        <div className='input' style={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '10vh', marginBottom: '20px'}}>
-                            <Input
-                                type={showPassword ? "text" : "password"} 
-                                placeholder='password'
-                                onChange={(e) => setPassword(e.target.value)}
-                                value={password}
+                    {/* Right Section */}
+                    <Grid
+                    item
+                    xs={12}
+                    sm={6}
+                    style={{
+                        backgroundColor: '#fff',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        padding: '20px',
+                    }}
+                    >
+                        <h1 style={{ fontFamily: 'Arial, sans-serif', fontSize: '2.4rem', color: '#333', margin: '0px' }}>
+                            Welcome Back!
+                        </h1>
+                        <p style={{ fontFamily: 'Arial, sans-serif', fontSize: '1rem', color: '#666', marginBottom: '45px' }}>
+                            Please enter your details
+                        </p>
+
+                        <div className='inputs'>
+                            {/* Conditionally render the alert if there's an error */}
+                            {errorMessage && (
+                                    <Alert severity="warning" onClose={() => setErrorMessage(null)}>
+                                        {errorMessage}
+                                    </Alert>
+                                )
+                            }
+                            <div className='input' style={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '10vh'}}>
+                                <TextField 
+                                id="outlined" 
+                                label="Username" 
+                                variant="standard"
+                                value={localusername} 
+                                onChange={(e) => setLocalUsername(e.target.value)}
                                 fullWidth  // Make input fill the available space
-                                endAdornment={
-                                    <InputAdornment position="end">
-                                        <IconButton
-                                            onClick={showPasswordHandler}
-                                            onMouseDown={mouseDownPasswordHandler} >
-                                            {showPassword ? (<Visibility />) : (<VisibilityOff />)}
-                                        </IconButton>
-                                    </InputAdornment>
-                                }
-                            />                            
+                                />                         
+                            </div>
+                            <div className='input' style={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '10vh', marginBottom: '20px'}}>
+                                <Input
+                                    type={showPassword ? "text" : "password"} 
+                                    placeholder='Password'
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    value={password}
+                                    fullWidth
+                                    endAdornment={
+                                        <InputAdornment position="end">
+                                            <IconButton
+                                                onClick={showPasswordHandler}
+                                                onMouseDown={mouseDownPasswordHandler} >
+                                                {showPassword ? (<Visibility />) : (<VisibilityOff />)}
+                                            </IconButton>
+                                        </InputAdornment>
+                                    }
+                                />                            
+                            </div>
                         </div>
-                    </div>
 
-                    <div className='login-container' style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                        <Button variant="contained" onClick={handleLogin} sx={{ 
-                        fontFamily: 'Inter', fontSize: '15px',
-                        backgroundColor: '#04DB9B',  
-                        color: '#fff',               
-                        borderRadius: '8px',        
-                        padding: '10px 20px',        
-                        '&:hover': {
-                            backgroundColor: '#006346', 
-                        }
-                        }}>
-                            Log in
-                        </Button>
-                    </div>
-
-                </Grid>
+                        <div className='login-container' style={{display: 'flex', justifyContent: 'center', alignItems: 'center',marginTop: '35px' }}>
+                            <Button variant="contained" onClick={handleLogin} sx={{ 
+                            fontFamily: 'Inter, Arial, Sans-serif', fontSize: '15px',
+                            fontWeight:'bold',
+                            backgroundColor: '#D5B5D4',  
+                            color: '#fff',               
+                            borderRadius: '25px',        
+                            padding: '10px 20px',
+                            textTransform: 'none', // Prevents text from being capitalized        
+                            '&:hover': {
+                                backgroundColor: '#522350', 
+                            }
+                            }}>
+                                Log in
+                            </Button>
+                        </div>
+                    </Grid>
                 </Grid>              
             </Grid>
         </div>
