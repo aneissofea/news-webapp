@@ -9,12 +9,11 @@ function Home({ setIsLoggedIn }) {
     const [isFavouritesPanelOpen, setIsFavouritesPanelOpen] = useState(false);
     const [newsList, setNewsList] = useState([]);   
     const [refreshFavourites, setRefreshFavourites] = useState(false);  
-    const [keyword, setKeyword] = useState('');
+    const [, setKeyword] = useState('');
 
     // Fetch news based on the keyword
     const handleSearchNews = (searchTerm) => {
         if (searchTerm) {
-
             const apikey = process.env.REACT_APP_NEWS_API;
             fetch(`https://newsapi.org/v2/everything?q=${searchTerm}&apiKey=${apikey}`)
                 .then(response => response.json())
@@ -75,7 +74,7 @@ function Home({ setIsLoggedIn }) {
                 />
             </Grid>
             {/* Content */}
-            <Grid className="content-container" item lg={11} style={{ margin: 0, padding: 0 }}>
+            <Grid className="content-container" item lg={11} style={{ margin: 0, padding: 0,}}>
                 <Grid container direction='row' style={{height: "100%", margin: 0, padding: 0, justifyContent: 'center'}} spacing={0}>
                     {/* Add the toggle button */}
                     {!isFavouritesPanelOpen && (
@@ -98,14 +97,14 @@ function Home({ setIsLoggedIn }) {
                     {/* MyFavouritesPanel */}
                     {isFavouritesPanelOpen && (
                     <Grid className="left-panel-container" item lg="2" spacing={0}>
-                        <MyFavouritesPanel style={{overflowY: "scroll", position: 'fixed', height: "100%", margin: 0, padding: 0}}>
+                        <MyFavouritesPanel style={{overflowY: "scroll", position: 'fixed', margin: 0, padding: 0}}>
                             refreshFavourites={refreshFavourites}
                         </MyFavouritesPanel>
                     </Grid>
                     )}
 
                     {/* News articles */}    
-                    <Grid className='results-container' item lg="10" >
+                    <Grid className='results-container' item lg="10" style={{height: "100%"}} >
                         <DisplayResults 
                         newsList={newsList}
                         updatemyFavourites={updatemyFavourites}

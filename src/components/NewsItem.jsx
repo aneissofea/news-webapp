@@ -13,7 +13,8 @@ const NewsItem = ({ news, updatemyFavourites  }) => {
     setIsFavorited(isAlreadyFavourite);
   }, [news.url]);
 
-  const handleBookmark = () => {
+  const handleBookmark = (e) => {
+    e.stopPropagation(); // Prevent triggering the card's click event
     const savedFavourites = JSON.parse(localStorage.getItem('favourites')) || [];
 
     if (isFavorited) {
@@ -33,9 +34,13 @@ const NewsItem = ({ news, updatemyFavourites  }) => {
     // Update the MyFavouritesPanel
     if (updatemyFavourites) updatemyFavourites();
   };
+
+  const openArticle = () => {
+    window.open(news.url, '_blank');
+  };
  
   return (
-    <Card style={{ margin: '10px', width: '235px', height:'350px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between',}}>
+    <Card style={{ margin: '10px', width: '235px', height:'350px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between',}} onClick={openArticle} onMouseEnter={(e) => (e.currentTarget.style.cursor = 'pointer')}>
       <div>
         {/* News Image */}
         <CardMedia
