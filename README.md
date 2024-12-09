@@ -1,70 +1,80 @@
-# Getting Started with Create React App
+# Brand News 🌐📰
+A dynamic news search application that allows users to find the latest news articles, read full stories, and bookmark their favorite articles. Powered by NewsAPI, this app delivers real-time news with a sleek and intuitive user interface.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Features
+🔍 Search News: Enter keywords to fetch articles from around the globe.<br/>
+⭐ Bookmark Favorites: Save articles for quick access in your favorites panel.<br/>
+⚙️ Live API Integration: Powered by NewsAPI for real-time data.<br/>
+💾 LocalStorage Integration: Bookmarked articles persist across sessions.<br/>
 
-## Available Scripts
+# Demo
 
-In the project directory, you can run:
+Click ▶ below to watch the video demo.
 
-### `npm start`
+https://github.com/user-attachments/assets/182bfa60-62bc-4aba-a007-4dd39c73bf04
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# Technologies Used
+<ul>
+  <li>Frontend Framework: React.js</li>
+  <li>Styling: Material-UI (MUI)</li>
+  <li>State Management: React hooks</li>
+  <li>Data Fetching: Fetch API and NewsAPI</li>
+  <li>Persistence: LocalStorage for saving bookmarks</li>
+</ul>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# Installation and Setup Guide
+1. Clone the Repository
+```
+git clone https://github.com/aneissofea/news-webapp.git
+cd news-app
+```
+2. Install Dependencies<br/>
+Make sure you have Node.js installed. Then run:
+```
+npm install
+```
+3. Set Up Environment Variables<br/>
+Create a .env file in the project root and add the following:<br/>
+```
+REACT_APP_NEWS_API=your_api_key_here
+```
+Replace your_api_key_here with your NewsAPI key. Get one from NewsAPI.
 
-### `npm test`
+4. Start the Application<br/>
+```
+npm start
+```
+The app will run on http://localhost:3000.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Usage Instructions
+### Searching for News
+<ul>
+  <li>Type a keyword into the search bar and press Enter.</li>
+  <li>Browse through the results, including headlines, thumbnails, and source details.</li>
+</ul>
 
-### `npm run build`
+### Bookmarking Articles
+<ul>
+  <li>Click the 🖤 icon on any article to save it to your favorites panel.</li>
+  <li>Access your bookmarks by toggling the Favorites Panel on the left.</li>
+</ul>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Favorites Panel
+<ul>
+  <li>Use the Clear All button to remove all saved articles.</li>
+  <li>Click any saved article to open it in a new tab.</li>
+</ul>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Potential Enhancements
+Consider adding these features for future development:
+<ul>
+  <li>Pagination: Allow users to load more articles from API results.</li>
+  <li>Category Filters: Add options to filter news by categories like Technology, Sports, etc.</li>
+  <li>Theme Toggle: Introduce light/dark mode for better accessibility.</li>
+  <li>User Authentication: Save bookmarks in a database for personalized user sessions.</li>
+</ul>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Contact
+If you have questions or suggestions, feel free to reach out:
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[Discord](https://discordapp.com/users/907895366131777556)
